@@ -6,45 +6,32 @@ SORT_DESCENDING = 1
 
 def bubble_sort(arr, sorting_order):
 
-        
+    if sorting_order not in [SORT_ASCENDING, SORT_DESCENDING]:
+        return []
 
     if len(arr) == 0:
-            return 0
-        
+        return 0
+
     for x in arr:
-            if type(x) != int:
-                return 2
-            
+        if type(x) != int:
+            return 2
+
     if len(arr) >= 10:
-            return 1
-        
+        return 1
 
-        # Copy input list to results list
     arr_result = arr.copy()
-
-        # Get number of elements in the list
     n = len(arr_result)
 
-    
-            # Traverse through all array elements
     for i in range(n - 1):
-                # range(n) also work but outer loop will
-                # repeat one time more than needed.
+        for j in range(0, n - i - 1):
 
-                # Last i elements are already in place
-            for j in range(0, n - i - 1):
+            if sorting_order == SORT_ASCENDING:
+                if arr_result[j] > arr_result[j + 1]:
+                    arr_result[j], arr_result[j + 1] = arr_result[j + 1], arr_result[j]
 
-                if sorting_order == SORT_ASCENDING:
-                     if arr_result[j] > arr_result[j + 1]:
-                            arr_result[j], arr_result[j + 1] = arr_result[j + 1], arr_result[j]
-
-
-                elif sorting_order == SORT_DESCENDING:
-                     if arr_result[j] < arr_result[j + 1]:
-                            arr_result[j], arr_result[j + 1] = arr_result[j + 1], arr_result[j]
-
-                
-   
+            elif sorting_order == SORT_DESCENDING:
+                if arr_result[j] < arr_result[j + 1]:
+                    arr_result[j], arr_result[j + 1] = arr_result[j + 1], arr_result[j]
 
     return arr_result
 
@@ -63,6 +50,6 @@ def main():
         print(result)
 
 if __name__ == "__main__":
-   main()
+    main()
 
 
