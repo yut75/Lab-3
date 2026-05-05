@@ -1,4 +1,4 @@
-import Lab2.BMI as bmi
+import BMI as bmi
 
 def test_bmi_under_weight():
     result = bmi.calculate_bmi(1.70, 40)

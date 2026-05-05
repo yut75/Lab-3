@@ -6,14 +6,14 @@ SORT_DESCENDING = 1
 
 def bubble_sort(arr, sorting_order):
 
-    if sorting_order not in [SORT_ASCENDING, SORT_DESCENDING]:
+    if sorting_order != SORT_ASCENDING and sorting_order != SORT_DESCENDING:
         return []
 
     if len(arr) == 0:
         return 0
 
     for x in arr:
-        if type(x) != int:
+        if not isinstance(x, int):
             return 2
 
     if len(arr) >= 10:
